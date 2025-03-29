@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h:form>
+    <h:panelGrid columns="2">
+        <!-- Ô nhập Username -->
+        <h:outputLabel for="username" value="Username:" />
+        <h:inputText id="username" value="#{authController.username}" required="true" />
+
+        <!-- Ô nhập Password -->
+        <h:outputLabel for="password" value="Password:" />
+        <h:inputSecret id="password" value="#{authController.password}" required="true" />
+
+        <!-- Nút Đăng nhập -->
+        <h:commandButton value="Login" action="#{authController.login}" />
+    </h:panelGrid>
+</h:form>
+</body>
+</html>

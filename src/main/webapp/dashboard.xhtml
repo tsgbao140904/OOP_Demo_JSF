@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Trang quản lý bài viết</title>
+</h:head>
+<h:body>
+    <h1>Chào mừng tới Trang quản lý bài viết và nội dung</h1>
+
+    <!-- Thanh tìm kiếm người dùng -->
+    <h:form>
+        <h:outputLabel for="searchUser" value="Tìm người dùng: " />
+        <h:inputText id="searchUser" value="#{authController.searchUsername}" />
+        <h:commandButton value="Tìm kiếm" action="#{authController.searchUser}" />
+    </h:form>
+
+    <!-- Hiển thị kết quả tìm kiếm -->
+    <h:panelGroup rendered="#{not empty authController.searchResult}">
+        <h3>Kết quả tìm kiếm:</h3>
+        <h:outputText value="#{authController.searchResult}" />
+    </h:panelGroup>
+
+    <h:form>
+        <h:commandButton value="Thêm bài viết" action="createPost.xhtml?faces-redirect=true" />
+    </h:form>
+
+    <h2>Danh sách bài viết</h2>
+    <h:dataTable value="#{postController.allPosts}" var="post" border="1">
+        <h:column>
+            <f:facet name="header">Tiêu đề</f:facet>
+            #{post.title}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Nội dung</f:facet>
+            #{post.body}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Ngày tạo</f:facet>
+            #{post.createdAt}
+        </h:column>
+    </h:dataTable>
+
+    <h:form>
+        <h:commandButton value="Đăng xuất" action="login.xhtml?faces-redirect=true"/>
+    </h:form>
+</h:body>
+</html>

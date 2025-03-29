@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Thêm bài viết</title>
+</h:head>
+<h:body>
+    <h1>Thêm bài viết mới</h1>
+    <h:form>
+        <h:outputLabel for="title" value="Tiêu đề: " />
+        <h:inputText id="title" value="#{postController.post.title}" required="true" />
+
+        <br/>
+
+        <h:outputLabel for="body" value="Nội dung: " />
+        <h:inputTextarea id="body" value="#{postController.post.body}" required="true" />
+        <br/>
+
+        <h:commandButton value="Lưu bài viết" action="#{postController.savePost}" />
+    </h:form>
+</h:body>
+</html>

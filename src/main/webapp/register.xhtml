@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Register</title>
+</head>
+<body>
+<h:form>
+    <h:panelGrid columns="2">
+        <h:outputLabel for="username" value="Username:" />
+        <h:inputText id="username" value="#{authController.username}" required="true" />
+
+        <h:outputLabel for="password" value="Password:" />
+        <h:inputSecret id="password" value="#{authController.password}" required="true" />
+    </h:panelGrid>
+
+    <h:commandButton value="Register" action="#{authController.register}" />
+</h:form>
+
+<h:messages />
+</body>
+</html>
